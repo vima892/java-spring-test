@@ -3,6 +3,7 @@ package com.springtest.demo.dao;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.io.Console;
 import java.util.ArrayList;
 import com.springtest.demo.model.Person;
 import org.springframework.stereotype.Repository;
@@ -41,7 +42,7 @@ public class FakeDataAccessService implements PersonDao {
     @Override
     public int updatePersonByID(UUID id, Person person) {
         return selectPersonByID(id).map(p -> {              // select the person
-            int indexOfPersonToUpdate = DB.indexOf(person); // map the person
+            int indexOfPersonToUpdate = DB.indexOf(p); // map the person
             if (indexOfPersonToUpdate >= 0) {               // if that person exists
                 DB.set(indexOfPersonToUpdate, person);      // update content of person
                 return 1;
