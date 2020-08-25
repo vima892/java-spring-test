@@ -2,6 +2,7 @@ package com.springtest.demo.dao;
 
 import com.springtest.demo.model.Person;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface PersonDao {
@@ -16,4 +17,10 @@ public interface PersonDao {
     }
 
     List<Person> selectAllPeople();
+
+    Optional<Person> selectPersonByID(UUID id);
+
+    int deletePersonByID(UUID id);
+
+    int updatePersonByID(UUID id, Person person);
 }

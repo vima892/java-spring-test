@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 import com.springtest.demo.dao.PersonDao;
 
@@ -26,6 +28,10 @@ public class PersonService {
 
     public List<Person> getAllPeople() {
         return personDao.selectAllPeople();
+    }
+
+    public Optional<Person> getPersonByID(UUID id) {
+        return personDao.selectPersonByID(id);
     }
 
 }
